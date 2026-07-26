@@ -1,0 +1,85 @@
+Carikan element di bawah ini menggunakan XPath locator berdasarkan file rumahsakit.html!
+
+Nama Peserta : Syahril Mutaqin
+Nomor Whatsapp : 085157602166
+
+======================================================================
+SOAL LATIHAN XPATH LOCATOR - RUMAH SAKIT XYZ
+======================================================================
+
+1. Cari element '<h1>' yang berisi teks 'Rumah Sakit XYZ'!
+Jawab : //h1[text()='Rumah Sakit XYZ']
+
+2. Cari image ('<img>') banner utama di bagian '<header>' yang memiliki atribut 'alt' bernilai 'Ilustrasi Rumah Sakit'!
+Jawab : //header/img[@alt='Ilustrasi Rumah Sakit']
+
+3. Cari menu link ('<a>') untuk tab 'Layanan' menggunakan atribut 'id'-nya!
+Jawab : //*[@id="menu-layanan"]
+
+4. Cari elemen menu link ('<a>') untuk tab 'Dokter' yang sedang dalam kondisi menyala (memiliki class 'active')!
+Jawab : //header//nav/ul/li/a[@id='menu-dokter' and contains(@class,'active')]4
+
+5. Cari elemen '<h3>' di dalam section Layanan yang berisi teks 'Poli Spesialis'!
+Jawab : //section[@id='sec-layanan']//h3[text()='Poli Spesialis']
+
+6. Cari status badge ('<span>') berwarna merah (class 'badge-danger') yang berisi teks '24 Jam' pada card UGD!
+Jawab : //span[contains(@class, 'badge-danger') and text()='24 Jam']
+
+
+baru 6 
+7. Cari tombol 'Detail Layanan' untuk layanan 'Laboratorium Klinik' menggunakan atribut 'id'-nya!
+Jawab : //button[@id='detail-laboratorium-klinik']
+
+8. Cari paragraf ('<p>') deskripsi layanan pada card 'Radiologi & Scan' menggunakan relasi/sibling dari judul 'Radiologi & Scan'!
+Jawab : //h3[text()='Radiologi & Scan']/following-sibling::p[1]
+
+9. Cari elemen card ('<div>' dengan class 'service-card') yang menjadi induk dari tombol detail UGD! (Gunakan XPath axes: parent)
+Jawab : //button[@id='detail-ugd']/parent::div[contains(@class,'service-card')]
+
+10. Cari tombol detail layanan ketiga dari daftar layanan yang tersedia menggunakan indeks XPath!
+Jawab : (//button[contains(text(),'Detail Layanan')])[3]
+
+11. Cari elemen header tabel ('<th>') ke-3 (Spesialisasi) pada tabel Dokter!
+Jawab : //table[@id='table-dokter']//th[3]
+
+12. Cari kolom nama ('<td>') untuk 'Dr. Jane Smith' pada tabel Dokter!
+Jawab : //table[@id='table-dokter']//tr[td[text()='Dr. Jane Smith']]/td[1]
+
+13. Cari tombol 'Detail' dokter spesialis Ginekologi (Dr. Michael Johnson) menggunakan atribut 'id'-nya!
+Jawab : //button[@id='detail-michael-johnson']
+
+14. Cari tombol 'Detail' untuk 'Dr. Sarah Lee' secara dinamis berdasarkan baris tabel namanya! (Gunakan sibling dari kolom nama Dr. Sarah Lee)
+Jawab : //td[text()='Dr. Sarah Lee']/following-sibling::td//button[.='Detail']
+
+15. Cari baris tabel ('<tr>') utuh yang memuat data 'Dr. John Doe'!
+Jawab : //tr[.//td[text()='Dr. John Doe']]
+
+16. Cari input text Nama Lengkap Pasien ('<input>') pada form pendaftaran berdasarkan atribut 'id'-nya!
+Jawab : //input[@id='nama-lengkap']
+
+17. Cari input tanggal lahir ('<input>') yang memiliki tipe date ('type="date"')!
+Jawab : //input[@type='date']
+
+18. Cari input radio untuk Jenis Kelamin Perempuan ('value="perempuan"') menggunakan atribut 'id'-nya!
+Jawab : //input[@id='jk-perempuan' and @value='perempuan']
+
+19. Cari elemen dropdown ('<select>') untuk memilih Poliklinik Tujuan!
+Jawab : //select[@id='poliklinik-tujuan']
+
+20. Cari opsi ke-3 ('Poli Bedah Umum') di dalam dropdown Poliklinik Tujuan!
+Jawab : //select[@id='poliklinik-tujuan']/option[text()='Poli Bedah Umum']
+
+21. Cari input checkbox untuk riwayat alergi 'Makanan'!
+Jawab : //input[@id='alergi-makanan' and @type='checkbox']
+
+22. Cari input file upload untuk Dokumen Rujukan berdasarkan tipe input atau id-nya!
+Jawab : //input[@id='dokumen-rujukan' and @type='file']
+
+23. Cari input checkbox persetujuan syarat & ketentuan yang memiliki atribut 'required'!
+Jawab : //input[@type='checkbox' and @required]
+
+24. Cari tombol 'Daftar Pasien' ('type="submit"') pada form pendaftaran menggunakan id-nya!
+Jawab : //button[@id='btn-daftar-pasien' and @type='submit']
+
+25. Cari tombol silang ('<span>') dengan class 'modal-close' untuk menutup Modal Detail Dokter!
+Jawab : //span[@class='modal-close']
