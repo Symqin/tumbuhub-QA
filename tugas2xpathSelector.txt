@@ -25,7 +25,6 @@ Jawab : //section[@id='sec-layanan']//h3[text()='Poli Spesialis']
 6. Cari status badge ('<span>') berwarna merah (class 'badge-danger') yang berisi teks '24 Jam' pada card UGD!
 Jawab : //span[contains(@class, 'badge-danger') and text()='24 Jam']
 
-cek 7 dulu
 7. Cari tombol 'Detail Layanan' untuk layanan 'Laboratorium Klinik' menggunakan atribut 'id'-nya!
 Jawab ://button[@id='btn-layanan-lab']
  
@@ -37,8 +36,7 @@ Jawab ://button[@id='btn-layanan-ugd']/parent::div[@class='service-card']
  
 10. Cari tombol detail layanan ketiga dari daftar layanan yang tersedia menggunakan indeks XPath!
 Jawab :(//div[@class='services-grid']//button[@class='btn-detail'])[3]
-(Merujuk ke tombol "Rawat Inap Premium" / id="btn-layanan-ranap")
- 
+
 11. Cari elemen header tabel ('<th>') ke-3 (Spesialisasi) pada tabel Dokter!
 Jawab ://section[@id='sec-dokter']//table//tr[1]/th[3]
  
@@ -74,7 +72,6 @@ Jawab ://input[@id='alergi-makanan']
  
 22. Cari input file upload untuk Dokumen Rujukan berdasarkan tipe input atau id-nya!
 Jawab ://input[@id='file_rujukan']
-(Alternatif berdasarkan type: //input[@type='file'])
  
 23. Cari input checkbox persetujuan syarat & ketentuan yang memiliki atribut 'required'!
 Jawab ://input[@id='persetujuan' and @required]
@@ -87,4 +84,4 @@ Jawab ://span[@class='modal-close']
 
 
 
-dari web  : https://script.google.com/macros/s/AKfycbyOwuqE6K9qZL-oninJt6WpZpZ0Kc9pHzTOb8eVjU3yaOkdo6JrXdSnQEscVDKdxksPBA/exec/rumahsakit
+web  : https://script.google.com/macros/s/AKfycbyOwuqE6K9qZL-oninJt6WpZpZ0Kc9pHzTOb8eVjU3yaOkdo6JrXdSnQEscVDKdxksPBA/exec/rumahsakit
