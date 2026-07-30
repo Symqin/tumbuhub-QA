@@ -1,0 +1,51 @@
+Project Name:,ToolsQA,,,,,,,,
+Module Name:,Student Registration Form,,,,,,,,
+Reference Document:,If any,,,,,,,,
+Created by:,QA Engineer,,,,,,,,
+Date of creation:,12-Jul-26,,,,,,,,
+Date of review:,DD-MMM-YY,,,,,,,,
+,,,,,,,,,
+TEST CASE ID,TEST SCENARIO,TEST CASE,PRE-CONDITION,TEST STEPS,TEST DATA,EXPECTED RESULT,POST CONDITION,ACTUAL RESULT,STATUS (PASS/FAIL)
+TC_REG_001,Verifikasi submit Student Registration Form,Submit form dengan semua data lengkap dan valid,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Enter First Name
+2. Enter Last Name
+3. Enter Email
+4. Select Gender
+5. Enter Mobile Number
+6. Select Date of Birth
+7. Enter Subjects
+8. Check Hobbies
+9. Upload Picture
+10. Enter Address
+11. Select State & City
+12. Click ""Submit"" button","<Valid First Name>
+<Valid Last Name>
+<Valid Email>
+<Valid 10-digit Mobile>",Successful submission. Popup ringkasan pendaftaran muncul dengan data yang sesuai.,Data siswa terekam/ditampilkan sementara di layar,,
+TC_REG_002,Verifikasi submit Student Registration Form,Submit form hanya dengan field wajib (Mandatory),"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Enter First Name
+2. Enter Last Name
+3. Select Gender
+4. Enter Mobile Number
+5. Click ""Submit"" button","<Valid First Name>
+<Valid Last Name>
+<Valid Gender>
+<Valid 10-digit Mobile>",Successful submission tanpa error validasi.,Data siswa terekam/ditampilkan sementara di layar,,
+TC_REG_003,Verifikasi submit Student Registration Form,Submit form dalam keadaan kosong sepenuhnya,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Biarkan semua field kosong
+2. Click ""Submit"" button",<Empty Fields>,Form tidak disubmit. Muncul indikator pesan/border error warna merah pada semua mandatory field.,User tetap berada di halaman form,,
+TC_REG_004,Verifikasi validasi kolom Email,Enter invalid format Email and submit,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Enter First Name, Last Name, Gender, Mobile
+2. Enter invalid Email
+3. Click ""Submit"" button",<Invalid Email Format> (misal: testemail.com tanpa @),Form tidak disubmit. Muncul error validasi pada kolom Email yang meminta format standar.,User tetap berada di halaman form,,
+TC_REG_005,Verifikasi validasi kolom Mobile Number,Enter Mobile Number kurang dari 10 digit,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Enter First Name, Last Name, Gender
+2. Enter 5 digit Mobile Number
+3. Click ""Submit"" button",<Invalid Mobile> (misal: 12345),Form tidak disubmit. Muncul error validasi pada kolom Mobile karena jumlah digit tidak sesuai batas.,User tetap berada di halaman form,,
+TC_REG_006,Verifikasi interaksi elemen UI,Verifikasi kaskade dropdown City berdasarkan State,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Click dropdown 'Select State'
+2. Pilih State yang tersedia
+3. Click dropdown 'Select City'",<Valid State> (misal: NCR),Dropdown City hanya memunculkan daftar kota yang relevan dan tergabung dalam State yang dipilih (misal: Delhi).,Dropdown City siap untuk dipilih,,
+TC_REG_007,Verifikasi interaksi elemen UI,Verifikasi limitasi Radio Button pada Gender,"1. Need a valid browser to open Practice Form
+2. User berada di halaman ToolsQA","1. Click radio button 'Male'
+2. Click radio button 'Female'",<N/A>,"Saat 'Female' diklik, status aktif pada opsi 'Male' otomatis mati. Hanya 1 gender yang dapat aktif.",Opsi gender terbaru dipertahankan,,
