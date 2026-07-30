@@ -84,3 +84,7 @@ Jawab ://input[@id='btn-submit-form']
  
 25. Cari tombol silang ('<span>') dengan class 'modal-close' untuk menutup Modal Detail Dokter!
 Jawab ://span[@class='modal-close']
+
+
+
+dari web  : https://script.google.com/macros/s/AKfycbyOwuqE6K9qZL-oninJt6WpZpZ0Kc9pHzTOb8eVjU3yaOkdo6JrXdSnQEscVDKdxksPBA/exec/rumahsakit
