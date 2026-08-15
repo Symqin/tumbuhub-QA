@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalVariableEntities>
+   <description></description>
+   <name>default</name>
+   <tag></tag>
+   <defaultProfile>true</defaultProfile>
+   <GlobalVariableEntity>
+      <description>Base URL aplikasi HRSV Dashboard</description>
+      <initValue>'http://103.180.125.62:3880'</initValue>
+      <name>BASE_URL</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Username akun karyawan</description>
+      <initValue>'TestAccountKaryawan1'</initValue>
+      <name>USERNAME</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Password akun karyawan</description>
+      <initValue>'P@sswordK1'</initValue>
+      <name>PASSWORD</name>
+      <protected>false</protected>
+      <valueType>STRING</valueType>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description>Timeout tunggu elemen (detik)</description>
+      <initValue>15</initValue>
+      <name>WAIT_TIMEOUT</name>
+      <protected>false</protected>
+      <valueType>NUMBER</valueType>
+   </GlobalVariableEntity>
+</GlobalVariableEntities>
