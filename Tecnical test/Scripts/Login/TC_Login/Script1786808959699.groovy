@@ -1,25 +1,15 @@
 import custom.WebUI
-import static custom.WebUI.cari
-import com.kms.katalon.core.testdata.TestDataFactory
-import com.kms.katalon.core.testdata.TestData
+import com.kms.katalon.core.util.KeywordUtil
 
-TestData data = TestDataFactory.findTestData('Data Files/Login_Data')
-
-for (int i = 1; i <= data.getRowNumbers(); i++) {
-
-    WebUI.openBrowser("http://103.180.125.62:3880/#/login")
-
-    WebUI.takeScreenshot()
-
-    WebUI.setText(cari("//input[@placeholder='Masukkan username atau email anda...']"), data.getValue('Username', i))
-
-    WebUI.setText(cari("//input[@placeholder='Masukkan password anda..']"), data.getValue('Password', i))
-
-    WebUI.takeScreenshot()
-
-    WebUI.click(cari("//button[contains(.,'Login')]"))
-
-    WebUI.takeScreenshot()
-
-    WebUI.closeBrowser()
+if (!Tipe?.trim()) {
+    KeywordUtil.markFailedAndStop('Data binding gagal: variable Tipe kosong')
 }
+
+// 1. Lakukan Login
+WebUI.login(Username, Password)
+
+// 2. Verifikasi Hasil
+WebUI.verifikasiLogin(Tipe)
+
+// 3. Tutup Browser
+WebUI.closeBrowser()

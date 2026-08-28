@@ -7,8 +7,8 @@
 | **Aplikasi** | HRSV Dashboard |
 | **URL** | `http://103.180.125.62:3880/#/login` |
 | **Tools** | Katalon Studio (Enterprise) |
-| **Metode** | Data Driven Testing (data binding + perulangan `for`) |
-| **Sistem** | Website management kegiatan kerja HRD (cuti, lembur, slip gaji, administrasi karyawan) |
+| **Metode** | Data Driven Testing via Katalon Data Binding |
+| **Sistem** | Website management kegiatan kerja HRD |
 | **Akun Karyawan** | Username: `TestAccountKaryawan1` / Password: `P@sswordK1` |
 
 ---
@@ -18,22 +18,19 @@
 ```
 Tecnical test/
 ├── Data Files/
-│   ├── Login_Data.xlsx          # Data binding login (positive & negative)
-│   └── KaryawanBaru_Data.xlsx   # Data binding form karyawan baru
+│   ├── Login_Data.xlsx          # Data binding login (3 baris)
+│   └── KaryawanBaru_Data.xlsx   # Data binding form karyawan baru (14 baris)
 ├── Keywords/
 │   └── custom/
-│       └── WebUI.groovy         # Custom keyword (cari() dll.)
+│       └── WebUI.groovy         # Custom keyword (cari() locator dinamis)
 ├── Scripts/
 │   ├── Login/TC_Login/Script*.groovy
 │   └── KaryawanBaru/TC_KaryawanBaru/Script*.groovy
 ├── Test Cases/
-│   ├── Login/TC_Login.tc
-│   └── KaryawanBaru/TC_KaryawanBaru.tc
+│   ├── Login/TC_Login.tc        # Variable binding: Username, Password, Tipe
+│   └── KaryawanBaru/TC_KaryawanBaru.tc # Variable binding: 13 kolom
 ├── Test Suites/
-│   ├── TS_All.ts
-│   └── TS_All.groovy
-├── Profiles/
-│   └── default.glbl             # Global Variable
+│   └── TS_All.ts
 └── Include/files/               # Sample file upload (.jpg, .txt)
 ```
 
@@ -43,74 +40,29 @@ Tecnical test/
 
 File: `Keywords/custom/WebUI.groovy`
 
-Keyword `cari(locator)` membuat objek elemen dinamis **tanpa Object Repository**:
-
-| Format locator | Hasil |
-|---|---|
-| `cari("@nama")` | `//*[@name='nama']` (berdasar atribut `name`) |
-| `cari("//input[@placeholder=...]")` | XPath penuh |
-| `cari("button")` | CSS selector (tag `button`) |
-
-Keyword lain: `openBrowser()`, `getDriver()`, `comment()`, `clickJS()`.
+Keyword `cari(locator)` membuat test object secara instan dan dinamis tanpa Object Repository:
+- `cari("@nama")` ➔ `//*[@name='nama']`
+- `cari("//input[...]")` ➔ XPath penuh
+- `cari("button")` ➔ CSS Selector
 
 ---
 
-## 4. Global Variable (Profiles/default.glbl)
+## 4. Test Case & Data Binding
 
-| Variabel | Nilai |
-|----------|-------|
-| `BASE_URL` | `http://103.180.125.62:3880` |
-| `USERNAME` | `TestAccountKaryawan1` |
-| `PASSWORD` | `P@sswordK1` |
-| `WAIT_TIMEOUT` | `15` |
+### 4.1 TC_Login
+- **Data Binding:** `Data Files/Login_Data`
+- **Variabel:** `Username`, `Password`, `Tipe`
+- **Total Iterasi:** 3 data (1 Positive, 2 Negative)
 
----
-
-## 5. Test Case
-
-### 5.1 TC_Login (Login Karyawan)
-- **Data binding**: `Data Files/Login_Data`
-- **Alur**: perulangan `for` membaca seluruh baris data → buka halaman login → isi username & password → klik Login → screenshot.
-- **Data uji**:
-
-| Username | Password | Tipe |
-|----------|----------|------|
-| TestAccountKaryawan1 | P@sswordK1 | Positive |
-| TestAccountKaryawan1 | passwordSalah123 | Negative |
-| *(kosong)* | *(kosong)* | Negative |
-
-### 5.2 TC_KaryawanBaru (Form Karyawan Baru)
-- **Data binding**: `Data Files/KaryawanBaru_Data`
-- **Alur**: login → buka `/#/form-karyawan-baru` → perulangan `for` seluruh baris → isi form → upload foto → submit → screenshot → refresh untuk iterasi berikut.
-- **Field**: Nama, Tempat Lahir, Tanggal Lahir, Nomor KTP, Nomor HP, Email, Tanggal Join, Alamat KTP, Domisili, Foto KTP, Foto Selfie.
-- **Struktur kontrol**: `for` (perulangan data) + `if/else` (cek domisili kosong → centang checkbox).
+### 4.2 TC_KaryawanBaru
+- **Data Binding:** `Data Files/KaryawanBaru_Data`
+- **Variabel:** `Nama`, `TempatLahir`, `TanggalLahir`, `NomorKTP`, `NomorHP`, `Email`, `TanggalJoin`, `AlamatKTP`, `Domisili`, `FileKTP`, `FileSelfie`, `Tipe`, `Expected`
+- **Total Iterasi:** 14 data (4 Positive, 10 Negative)
 
 ---
 
-## 6. Cara Menjalankan
+## 5. Cara Menjalankan
 
-1. Buka proyek **Tecnical test** di Katalon Studio.
-2. Pastikan Data Files (`Login_Data`, `KaryawanBaru_Data`) sudah tampil di **Data Files** tree (daftarkan lewat UI jika belum).
-3. Jalankan **Test Suites → TS_All**.
-4. Hasil screenshot & report otomatis tersimpan di folder `Reports/`.
-
----
-
-## 7. Hasil Eksekusi
-
-*(diisi setelah menjalankan test)*
-
-| Test Case | Iterasi | Hasil | Keterangan |
-|-----------|---------|-------|------------|
-| TC_Login | 1 | | |
-| TC_Login | 2 | | |
-| TC_Login | 3 | | |
-| TC_KaryawanBaru | 1–12 | | |
-
----
-
-## 8. Catatan
-
-- Field login HRSV **tidak memiliki atribut `name`**, sehingga memakai XPath berbasis `placeholder`.
-- Field form karyawan baru memakai atribut `name` (contoh `@nama`, `@email`, `@img_ktp`).
-- Data binding memakai `TestDataFactory.findTestData()` (fitur native Katalon).
+1. Buka folder proyek `C:\Users\mutaq\Documents\code\qa\tumbuhub-QA\Tecnical test` di Katalon Studio.
+2. Buka Test Suites `TS_All`.
+3. Klik tombol **Run** (Chrome).

@@ -6,4 +6,52 @@
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>8b00d9c7-94dc-49bf-a210-42ee0c7d0294</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>20732c3e-5b1d-43ae-b6d6-345e0a2226a4</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/Login_Data</testDataId>
+   </testDataLinks>
+   <variableLinks>
+      <testDataLinkId>20732c3e-5b1d-43ae-b6d6-345e0a2226a4</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Username</value>
+      <variableId>login_var_username</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>20732c3e-5b1d-43ae-b6d6-345e0a2226a4</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Password</value>
+      <variableId>login_var_password</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId>20732c3e-5b1d-43ae-b6d6-345e0a2226a4</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>Tipe</value>
+      <variableId>login_var_tipe</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>login_var_username</id>
+      <masked>false</masked>
+      <name>Username</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>login_var_password</id>
+      <masked>false</masked>
+      <name>Password</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>login_var_tipe</id>
+      <masked>false</masked>
+      <name>Tipe</name>
+   </variable>
 </TestCaseEntity>
